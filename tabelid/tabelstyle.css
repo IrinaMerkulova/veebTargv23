@@ -1,18 +1,84 @@
 table{
-    width: 50%;
-    height: 200px;
-    border: 1px solid grey;
-    text-align: center;
+	width: 40%; /*40% ekraani laiust*/
+	height: 200px;
+	border: 1pt solid red;
 }
 td{
-    border: 1px solid grey;
+	border: 1pt solid red;
+	text-align: center; /*выравнивание текста*/
 }
-table#teine{
-    width: 30%;
-    height: 100px;
-    border: 1px solid red;
-    text-align: center;
+/*1.rida 1.lahter*/
+#tabel1 tr:nth-child(1) td:nth-child(1){
+	background-color: olive;
 }
-td.muu{
-    border: 1px solid red;
+/*1.rida 2.lahter*/
+#tabel1 tr:nth-child(1) td:nth-child(2){
+	background-color: gold;
 }
+
+/*2.rida 1.lahter*/
+#tabel1 tr:nth-child(2) td:nth-child(1){
+	background-color: green;
+}
+/*2.rida 2.lahter*/
+#tabel1 tr:nth-child(2) td:nth-child(2){
+	background-color: red;
+}
+/*-----------------------Eeesti lipp------------*/
+#eesti{
+	width: 330px; /*40% ekraani laiust*/
+	height: 210px;
+	border: 1pt solid grey;
+	border-spacing: 0;
+}
+#eesti td{
+	border:0;
+}
+/*1.rida*/
+#eesti tr:nth-child(1) {
+	background-color: blue;
+	}
+/*2.rida*/
+#eesti tr:nth-child(2) {
+	background-color: black;
+	}
+/*3.rida*/
+#eesti tr:nth-child(3) {
+	background-color: white;
+	}
+	/*--------------------Soome lipp------------*/
+#soome{
+	width: 330px; /*40% ekraani laiust*/
+	height: 210px;
+	border: 1pt solid grey;
+	border-spacing: 0;
+}
+#soome td{
+	border:0;
+}
+/*1.rida 1.lahter ja 3.rida 1.lahter*/
+#soome tr:nth-child(1) td:nth-child(1),
+#soome tr:nth-child(3) td:nth-child(1)  {
+	background-color: white;
+	width: 25%;
+	}
+/*1.rida 2.lahter ja 3.rida 2.lahter*/
+#soome tr:nth-child(1) td:nth-child(2),
+#soome tr:nth-child(3) td:nth-child(2)  {
+	background-color: blue;
+	width: 15%;
+	}	
+/*2.rida*/
+#soome tr:nth-child(2) {
+	background-color: blue;
+	height:20%;
+	}
+/*1.rida 3.lahter ja 3.rida 3.lahter*/
+#soome tr:nth-child(1) td:nth-child(3),
+#soome tr:nth-child(3) td:nth-child(3)  {
+	background-color: white;
+	}	
+	
+
+
+
