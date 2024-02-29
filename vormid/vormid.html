@@ -9,8 +9,10 @@
 <body>
 <h1>Küsimustik</h1>
 <form name="kysimustik">
+    <label for="varv">Vali vastuste värv</label>
+    <input type="color" id="varv" onchange="varvValik()">
     <table>
-    <!--tekstkast--https://meet.google.com/qso-zzcy-itj-->
+    <!--tekstkast--https://meet.google.com/mki-zrjb-hdd-->
         <tr>
             <td>
                 <label for="nimi">Nimi:</label>
@@ -39,6 +41,7 @@
         </td>
         <td>
             <div id="vastus2"></div>
+            <img src="" id="pilt">
         </td>
     </tr>
         <tr>
@@ -50,38 +53,49 @@
                 </strong>
             </td>
             <td>
-                <input type="checkbox" id="andmebaasid" name="aine" value="andmebaasid">
+                <input type="checkbox" id="andmebaasid" name="aine" value="andmebaasid" onchange="checkboxValik()">
                 <label for="andmebaasid">Andmebaasid</label>
                 <br>
-                <input type="checkbox" id="matemaatika" name="aine" value="Matemaatika">
+                <input type="checkbox" id="matemaatika" name="aine" value="Matemaatika" onchange="checkboxValik()">
                 <label for="matemaatika">Matemaatika</label>
                 <br>
-                <input type="checkbox" id="programeerimine" name="aine" value="programeerimine">
+                <input type="checkbox" id="programeerimine" name="aine" value="programeerimine" onchange="checkboxValik()">
                 <label for="programeerimine">Programeerimine</label>
+            </td>
+            <td>
+                <div id="vastus3"></div>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="kodu">Kust sa pärit oled? </label>
+                <br>
+                <label for="km">Kaugus</label>
             </td>
             <td>
-                <select id="kodu">
+                <select id="kodu" onchange="selectOptionValik()">
                     <option value="tyhi">vali...</option>
                     <option value="Tallinn">Tallinn</option>
                     <option value="Tartu">Tartu</option>
                     <option value="Narva">Narva</option>
                 </select>
+                <br>
+                <input type="range" id="km" min="0" max="200" onchange="selectOptionValik()">km
+            </td>
+            <td>
+                <div id="vastus4"></div>
             </td>
         </tr>
         <tr>
             <td>
-                <input type="button" value="OK">
+                <input type="button" value="OK" onclick="koikKokku()">
             </td>
             <td>
                 <input type="reset" value="Puhasta" onclick="puhasta()">
             </td>
         </tr>
     </table>
+    <div id="vastus5"></div>
 </form>
 Добавить в таблицу, написанную на уроке, мин 6 маx 10 вопросов и использовать для них
 различные подходящие input type(color, date, week, jne).
