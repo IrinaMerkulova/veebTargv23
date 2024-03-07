@@ -1,0 +1,11 @@
+#ilus_tabel .nw {
+    background: #999;
+}
+#ilus_tabel .n{
+    background: #60c;
+    color: #fff;
+}
+
+#ilus_tabel .highlight {
+    background: red;
+}

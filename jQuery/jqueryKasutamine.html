@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery kasutamine</title>
+    <link rel="stylesheet" href="queryStyle.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <!--https://pastebin.com/V0ZHRn1v-->
+    <script>
+        function orange(){
+            //kui hiir on div peal siis tekstivärv muutub oranziks
+            $('div#tekst1, h1').css('color', 'orange');
+        }
+        function must(){
+            //kui hiir on div peal siis tekstivärv muutub mustaks
+            $('div#tekst1').css('color', 'black');
+        }
+        function liigutus(event, ui){
+            var koht=ui.offset;
+            $('#vastus').html(koht.top+" // "+koht.left);
+        }
+        function start(){
+            $('#pilt').draggable();
+            $('#pilt').bind("drag", liigutus);
+            $('div#tekst1, h1').mouseenter(orange);
+            $('div#tekst1').mouseleave(must);
+        }
+
+    </script>
+</head>
+<body onload="start()">
+<h1>JQuery</h1>
+
+<input type="button" value="-->"
+       onclick="$('div#tekst1').animate({left: '600px'}, 1000)">
+<input type="button" value="<--"
+       onclick="$('div#tekst1').animate({left: '0px'}, 10000)">
+<div id="tekst1"> on JavaScripti teek, mis keskendub JavaScripti ja HTML-i vastastikusele mõjule. jQuery raamistik võimaldab saada kergesti juurdepääsu ükskõik missugusele DOM-elemendile, pöörduda DOM-elementide sisu ja atribuutide poole ning nendega manipuleerida. Samuti pakub jQuery raamistik mugavat API-t AJAX-iga töötamisel.</div>
+<h2>jQuery CDN - raamatukogu</h2>
+<div id="tekst2"> on JavaScripti teek, mis keskendub JavaScripti ja HTM</div>
+
+<img src="pilt.jpg" alt="pilt" id="pilt">
+<div id="vastus"></div>
+
+</body>
+</html>

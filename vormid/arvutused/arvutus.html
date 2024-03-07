@@ -4,37 +4,69 @@
     <meta charset="UTF-8">
     <title>JS arvutused</title>
     <script src="arvutusScript.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body onload="juhuslikPilt()">
 <h1>Juhuslik pilt</h1>
-<img src="" id="random-pilt" alt="pilt">
+<table id="ilus_tabel">
+    <tr>
+        <td class="nw"><img src="" id="random-pilt" alt="pilt"></td>
+        <td class="nw"><h2>Vali mida sa näed pildil</h2>
+            <label for="valik">Tee oma valik:</label>
+            <select id="valik" onchange="pildiKontroll()">
+                <option>Vali...</option>
+                <option value="img/1.png">pilt numbriga 1</option>
+                <option value="img/2.png">pilt numbriga 2</option>
+                <option value="img/3.png">pilt numbriga 3</option>
+            </select></td>
+    </tr>
+    <tr>
+        <td class="n">
+            <strong>Северо-Запад</strong>
+            <br>
+            <input type="radio" name="valik2" id="pilt1" value="img/1.png" onclick="pildiKontroll2()">
+            <label for="pilt1">pilt numbriga 1 -2.50 euro</label>
+            <br>
+            <input type="radio" name="valik2" id="pilt2" value="img/2.png" onclick="pildiKontroll2()">
+            <label for="pilt2">pilt numbriga 2 -1 euro</label>
+            <br>
+            <input type="radio" name="valik2"  id="pilt3" value="img/3.png" onclick="pildiKontroll2()">
+            <label for="pilt3">pilt numbriga 3 - 50 euro</label>
+            <br><div id="vastus"></div>
+        </td>
+        <td>
+            <h2>lisa vajalik kogus</h2>
+            <label for="kogus">Kogus:</label>
+            <input type="number" id="kogus" min="1" max="100" step="5">
+            <input type="button" value="Arvuta" onclick="radioValikuHinnad()">
+            <div id="vastus2"></div>
+        </td>
 
-<h2>Vali mida sa näed pildil</h2>
-<label for="valik">Tee oma valik:</label>
-<select id="valik" onchange="pildiKontroll()">
-    <option>Vali...</option>
-    <option value="img/1.png">pilt numbriga 1</option>
-    <option value="img/2.png">pilt numbriga 2</option>
-    <option value="img/3.png">pilt numbriga 3</option>
-</select>
-<br>
-<input type="radio" name="valik2" id="pilt1" value="img/1.png" onclick="pildiKontroll2()">
-<label for="pilt1">pilt numbriga 1 -2.50 euro</label>
-<br>
-<input type="radio" name="valik2" id="pilt2" value="img/2.png" onclick="pildiKontroll2()">
-<label for="pilt2">pilt numbriga 2 -1 euro</label>
-<br>
-<input type="radio" name="valik2"  id="pilt3" value="img/3.png" onclick="pildiKontroll2()">
-<label for="pilt3">pilt numbriga 3 - 50 euro</label>
-<br>
+    </tr>
+</table>
+<script>
+    let table = document.getElementById('ilus_tabel');
+    let selectedTd;
+    table.onclick = function(event) {
+        let target = event.target;
 
-<div id="vastus"></div>
-<h2>lisa vajalik kogus</h2>
-<label for="kogus">Kogus:</label>
-<input type="number" id="kogus" min="1" max="100" step="5">
-<input type="button" value="Arvuta" onclick="radioValikuHinnad()">
-<div id="vastus2"></div>
-
-
+        highlight(target.closest("td"));
+        // while (target != this) {
+        //
+        //     if (target.tagName == 'TD') {
+        //         highlight(target);
+        //         return;
+        //     }
+        //     target = target.parentNode;
+        // }
+    }
+    function highlight(node) {
+        if (selectedTd) {
+            selectedTd.classList.remove('highlight');
+        }
+        selectedTd = node;
+        selectedTd.classList.add('highlight');
+    }
+</script>
 </body>
 </html>
