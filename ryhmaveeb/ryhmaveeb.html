@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>andmed xml failist jQuery kaudu</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            //jQuery ajax-meetod
+            $.ajax({
+                type: "GET",
+                url: "opilased.xml",
+                dataType: "xml",
+                success: naitaXML,
+                error: vigaXML
+            });
+        });
+        function naitaXML(xml){
+            //each(), find(), attr()
+            $(xml).find('opilane').each(function(){
+                $("#ala").append(
+                    '<h2 class="'+$(this).attr('sugu')+'">'+$(this).find('nimi').text()+'</h2>'+
+                    '<img src="pildid/'+$(this).find('pilt').text()+'" alt="pilt">'
+                );
+
+            });
+
+        }
+        function vigaXML(){
+            // meetod append()- insert
+            $("#ala").append('<p style="color:red">Probleem XML failis!</p>');
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+<div id="ala"></div>
+Ülesanne:
+1. html leht lisa header, main, footer.
+iga õpilane on div koos pildiga
+
+2. täienda xml õpilaste andmetega
+3. kujundada html leht css abil, kasutada klassid ja üldised omadused igale html käsule
+4. iga õpilasele saab linkida
+5* lisa jquery animatsioonid
+
+
+
+
+</body>
+</html>
